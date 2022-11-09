@@ -35,6 +35,13 @@ TEST(basic_heuristic_test, functionality)
     EXPECT_EQ(alg1.heuristic(0, 2), 10);
 }
 
+TEST(basic_execution_test, functionality)
+{
+    Graph g(std::string("../test/test_data/test1"), false);
+    Astar alg1(g);
+    EXPECT_EQ(alg1.exe(0, 2), 10);
+}
+
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);

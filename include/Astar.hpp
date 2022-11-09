@@ -25,7 +25,7 @@ class Astar
     public: Astar(Graph graph);
 
     public:
-        void exe(int start, int destination);
+        float exe(int start, int destination);
         void prep(int destination);
         float heuristic(int start, int destination);
         std::vector <int> get_vertex_dist();

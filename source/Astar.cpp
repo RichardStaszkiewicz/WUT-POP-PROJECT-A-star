@@ -21,7 +21,6 @@ Astar::Astar(Graph graph) : g(graph)
 
 void Astar::prep(int destination)
 {
-
     std::list <std::pair<int, int>> q;
     std::vector <bool> visited;
     visited.resize(g.no_vortex, false);
@@ -48,6 +47,7 @@ void Astar::prep(int destination)
         }
     }
 }
+
 float Astar::heuristic(int start, int destination)
 {
     if(vertex_dist[start] == 1000000) return 1000000;
