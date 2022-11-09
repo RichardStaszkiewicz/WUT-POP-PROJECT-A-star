@@ -22,7 +22,7 @@ class Graph
         std::vector< std::pair <int, int> > questions;
 
         Graph();
-        Graph(std::string dir);
+        Graph(std::string dir, bool verbose);
 };
 
 #endif
