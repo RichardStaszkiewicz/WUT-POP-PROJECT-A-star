@@ -9,6 +9,8 @@
 
 #define GRAPH
 
-
+class Graph
+{
+};
 
 #endif
