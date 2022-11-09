@@ -13,14 +13,21 @@ float Brut::exe(int start, int destination)
     std::queue<std::pair <int, float>> q;
     //vector to store distances of all vertices from the source vertex.
     std::vector<int> dist(graph.no_vortex, INF);
+    //vector to store visited vertexes
+    std::vector<int> visited(graph.no_vortex, 0);
     // Insert source itself in priority queue and initialize its distance as 0. 
     q.push(std::make_pair(0, start));
     dist[start] = 0;
     // Looping until end reach
-    while (dist[destination] == INF)
+    while (!q.empty())
     {
         // get the vertex with minimum distance value
         int current = q.front().second;
+        if(visited[current] == 1){
+        q.pop();
+        continue;
+        }
+        visited[current] = 1;
         q.pop();
         // get all adjecent of current 
         for (auto i : graph.connections[current]) {

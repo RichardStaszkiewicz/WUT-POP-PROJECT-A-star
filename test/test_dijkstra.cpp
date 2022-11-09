@@ -25,7 +25,7 @@ TEST(example_tests, exe1)
 {
     Graph graph(std::string("../test/test_data/test1"), false);
     Dijkstra dijkstra(graph);
-    ASSERT_EQ(dijkstra.exe(2, 1), 4);
+    ASSERT_EQ(dijkstra.exe(2, 1), 6);
 }
 
 int main(int argc, char **argv)

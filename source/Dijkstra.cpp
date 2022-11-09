@@ -1,6 +1,7 @@
 #include "Dijkstra.hpp"
 #include <queue>
 #define INF 0x3f3f3f3f
+#include <iostream>
 
 Dijkstra::Dijkstra(Graph g)
 {
@@ -15,13 +16,18 @@ float Dijkstra::exe(int start, int destination)
     std::vector<int> dist(graph.no_vortex, INF);
     // Insert source itself in priority queue and initialize its distance as 0. 
     pq.push(std::make_pair(0, start));
-    dist[start] = 0;
     // Looping until end reach
     while (dist[destination] == INF)
     {
         // get the vertex with minimum distance value
         int current = pq.top().second;
+        if(dist[current] != INF){
         pq.pop();
+        continue;
+        }
+        dist[current] = pq.top().first;
+        pq.pop();
+
         // get all adjecent of current
         for (auto i : graph.connections[current]) {
             // Get vertex label and weight of current adjacent of u. 
@@ -30,10 +36,8 @@ float Dijkstra::exe(int start, int destination)
             // If there is shorter path
             if (dist[ver] > dist[current] + weight)
             {
-                // Update distance of ver
-                dist[ver] = dist[current] + weight;
                 // Add new ver to queue
-                pq.push(std::make_pair(dist[ver], ver));
+                pq.push(std::make_pair(dist[current] + weight, ver));
             }
         }
     }
