@@ -32,14 +32,14 @@ TEST(functionality_tests, basic_heuristic)
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
     alg1.prep(2);
-    EXPECT_EQ(alg1.heuristic(0), 10);
+    EXPECT_EQ(alg1.heuristic(0), 4);
 }
 
 TEST(example_tests, execution_test1)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
-    EXPECT_EQ(alg1.exe(0, 2, false), 4);
+    EXPECT_EQ(alg1.exe(0, 2, false), 10);
 }
 
 TEST(example_tests, execution_test2)
@@ -53,7 +53,7 @@ TEST(example_tests, execution_test3)
 {
     Graph g(std::string("../test/test_data/test3"), false);
     Astar alg1(g);
-    EXPECT_EQ(alg1.exe(4, 5, true), 24);
+    EXPECT_EQ(alg1.exe(4, 5, false), 24);
 }
 
 

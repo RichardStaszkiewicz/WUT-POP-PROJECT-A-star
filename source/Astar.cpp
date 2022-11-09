@@ -18,8 +18,6 @@ Astar::Astar(Graph graph) : g(graph)
     for(int i = 0; i < int(temp.size()); i += 2) temp2.push_back(temp[i]);
     prefix_sum.push_back(0);
     for(int i = 0; i < std::min(int(temp2.size()), g.no_vortex - 1); i++) prefix_sum.push_back(prefix_sum[i] + temp2[i]);
-    for(auto a : prefix_sum) std::cout << a << " ";
-    std::cout << std::endl;
 }
 
 void Astar::prep(int destination)
