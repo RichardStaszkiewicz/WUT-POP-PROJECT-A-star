@@ -13,7 +13,9 @@ TEST(construction_tests, graph_import)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
+    EXPECT_EQ(alg1.g.no_edges, 3);
 }
+
 
 int main(int argc, char **argv)
 {
