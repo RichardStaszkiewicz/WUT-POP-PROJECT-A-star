@@ -16,7 +16,7 @@ TEST(construction_tests, graph_import)
     EXPECT_EQ(alg1.g.no_edges, 3);
 }
 
-TEST(basic_bfs_test, functionality)
+TEST(functionality_tests, basic_bfs)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
@@ -27,7 +27,7 @@ TEST(basic_bfs_test, functionality)
     EXPECT_EQ(x[2], 1);
 }
 
-TEST(basic_heuristic_test, functionality)
+TEST(functionality_tests, basic_heuristic)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
@@ -35,11 +35,18 @@ TEST(basic_heuristic_test, functionality)
     EXPECT_EQ(alg1.heuristic(0, 2), 10);
 }
 
-TEST(basic_execution_test, functionality)
+TEST(example_tests, execution_test1)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
     EXPECT_EQ(alg1.exe(0, 2), 10);
+}
+
+TEST(example_tests, execution_test2)
+{
+    Graph g(std::string("../test/test_data/test2"), false);
+    Astar alg1(g);
+    EXPECT_EQ(alg1.exe(3, 1), 80);
 }
 
 int main(int argc, char **argv)
