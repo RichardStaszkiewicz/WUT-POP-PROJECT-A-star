@@ -18,11 +18,17 @@ class Astar
     public:
         Graph g;
 
-    Astar(Graph graph);
+    private:
+        std::vector <float> sorted;
+        std::vector <int> vertex_dist;
+
+    public: Astar(Graph graph);
 
     public:
         void exe(int start, int destination);
+        void prep(int start);
         float heuristic(int start, int destination);
+        std::vector <int> get_vertex_dist();
 };
 
 #endif
