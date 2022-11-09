@@ -28,10 +28,8 @@ TEST(import_test, import_vortex)
 TEST(import_test, import_questions)
 {
     Graph g(std::string("../test/test_data/test1"), false);
-    EXPECT_EQ(g.connections[0][0].first, 1);
-    EXPECT_EQ(g.connections[0][0].second, 4);
-    EXPECT_EQ(g.connections[0][1].first, 2);
-    EXPECT_EQ(g.connections[0][1].second, 20);
+    EXPECT_EQ(g.questions[0].first, 0);
+    EXPECT_EQ(g.questions[0].second, 2);
 }
 
 int main(int argc, char **argv)
