@@ -1,14 +1,17 @@
 #include <gtest/gtest.h>
 #include <../include/Graph.hpp>
+#include <vector>
+#include <string>
 
 TEST(sanity_test, sanity_test)
 {
     EXPECT_EQ(true, true);
 }
 
-TEST(init_test, sanity_test)
+TEST(import_basic, import_test)
 {
-    Graph g;
+    Graph g(std::string("test_data/test1"));
+    EXPECT_EQ(g.no_edges, 3);
 }
 
 int main(int argc, char **argv)

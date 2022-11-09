@@ -8,9 +8,19 @@
 #ifndef GRAPH
 
 #define GRAPH
+#include <vector>
+#include <string>
 
 class Graph
 {
+    public:
+        int no_edges = 0;
+        int no_vortex = 0;
+        int no_questions = 0;
+        std::vector< std::vector< std::pair <int, float> > > connections;
+        std::vector< std::pair <int, int> > questions;
+
+        Graph(std::string dir);
 };
 
 #endif
