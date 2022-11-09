@@ -10,8 +10,10 @@ TEST(sanity_test, sanity_test)
 
 TEST(import_basic, import_test)
 {
-    Graph g(std::string("test_data/test1"));
+    Graph g(std::string("../test/test_data/test1"));
     EXPECT_EQ(g.no_edges, 3);
+    EXPECT_EQ(g.no_vortex, 3);
+    EXPECT_EQ(g.no_questions, 3);
 }
 
 int main(int argc, char **argv)

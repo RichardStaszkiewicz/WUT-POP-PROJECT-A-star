@@ -10,6 +10,7 @@
 #define GRAPH
 #include <vector>
 #include <string>
+#include <iostream>
 
 class Graph
 {
@@ -20,6 +21,7 @@ class Graph
         std::vector< std::vector< std::pair <int, float> > > connections;
         std::vector< std::pair <int, int> > questions;
 
+        Graph();
         Graph(std::string dir);
 };
 

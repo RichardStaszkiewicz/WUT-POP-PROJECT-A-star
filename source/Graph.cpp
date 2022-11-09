@@ -3,6 +3,8 @@
 #include <fstream>
 #include <string>
 
+GRAPH::Graph::Graph(){}
+
 Graph::Graph(std::string dir)
 {
     std::ifstream in(dir);
