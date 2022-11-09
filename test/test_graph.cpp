@@ -6,6 +6,10 @@ TEST(sanity_test, sanity_test)
     EXPECT_EQ(true, true);
 }
 
+TEST(init_test, sanity_test)
+{
+    Graph g;
+}
 
 int main(int argc, char **argv)
 {
