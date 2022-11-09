@@ -19,14 +19,14 @@ class Astar
         Graph g;
 
     private:
-        std::vector <float> sorted;
+        std::vector <float> prefix_sum;
         std::vector <int> vertex_dist;
 
     public: Astar(Graph graph);
 
     public:
         void exe(int start, int destination);
-        void prep(int start);
+        void prep(int destination);
         float heuristic(int start, int destination);
         std::vector <int> get_vertex_dist();
 };

@@ -13,10 +13,13 @@ Astar::Astar(Graph graph) : g(graph)
         for(auto j : i) temp.push_back(j.second);
     }
     std::sort(temp.begin(), temp.end());
-    for(int i = 0; i < int(temp.size()); i += 2) sorted.push_back(temp[i]);
+    std::vector<float> temp2 = std::vector<float> {};
+    for(int i = 0; i < int(temp.size()); i += 2) temp2.push_back(temp[i]);
+    prefix_sum.push_back(temp2[0]);
+    for(int i = 1; i < std::min(int(temp2.size()), g.no_vortex - 1); i++) prefix_sum.push_back(prefix_sum[i-1] + temp2[i]);
 }
 
-void Astar::prep(int start)
+void Astar::prep(int destination)
 {
 
     std::list <std::pair<int, int>> q;
@@ -24,10 +27,10 @@ void Astar::prep(int start)
     visited.resize(g.no_vortex, false);
     vertex_dist.resize(g.no_vortex, 1000000);
 
-    visited[start] = true;
-    vertex_dist[start] = 0;
+    visited[destination] = true;
+    vertex_dist[destination] = 0;
 
-    q.push_back(std::pair<int, int>{start, 0});
+    q.push_back(std::pair<int, int>{destination, 0});
 
     while(!q.empty())
     {
@@ -47,7 +50,8 @@ void Astar::prep(int start)
 }
 float Astar::heuristic(int start, int destination)
 {
-    return 0;
+    if(vertex_dist[start] == 1000000) return 1000000;
+    return prefix_sum[vertex_dist[start]];
 }
 
 std::vector <int> Astar::get_vertex_dist() {return vertex_dist;}

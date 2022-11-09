@@ -31,6 +31,7 @@ TEST(basic_heuristic_test, functionality)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
+    alg1.prep(2);
     EXPECT_EQ(alg1.heuristic(0, 2), 10);
 }
 
