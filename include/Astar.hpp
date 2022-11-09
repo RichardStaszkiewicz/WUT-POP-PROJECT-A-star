@@ -26,8 +26,8 @@ class Astar
 
     public:
         void prep(int destination);
-        float heuristic(int start, int destination);
-        float exe(int start, int destination);
+        float heuristic(int start);
+        float exe(int start, int destination, bool verbose);
         std::vector <int> get_vertex_dist();
 };
 

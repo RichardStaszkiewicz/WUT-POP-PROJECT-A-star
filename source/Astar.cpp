@@ -16,8 +16,10 @@ Astar::Astar(Graph graph) : g(graph)
     std::sort(temp.begin(), temp.end());
     std::vector<float> temp2 = std::vector<float> {};
     for(int i = 0; i < int(temp.size()); i += 2) temp2.push_back(temp[i]);
-    prefix_sum.push_back(temp2[0]);
-    for(int i = 1; i < std::min(int(temp2.size()), g.no_vortex - 1); i++) prefix_sum.push_back(prefix_sum[i-1] + temp2[i]);
+    prefix_sum.push_back(0);
+    for(int i = 0; i < std::min(int(temp2.size()), g.no_vortex - 1); i++) prefix_sum.push_back(prefix_sum[i] + temp2[i]);
+    for(auto a : prefix_sum) std::cout << a << " ";
+    std::cout << std::endl;
 }
 
 void Astar::prep(int destination)
@@ -49,13 +51,13 @@ void Astar::prep(int destination)
     }
 }
 
-float Astar::heuristic(int start, int destination)
+float Astar::heuristic(int start)
 {
     if(vertex_dist[start] == 1000000) return 1000000;
     return prefix_sum[vertex_dist[start]];
 }
 
-float Astar::exe(int start, int destination)
+float Astar::exe(int start, int destination, bool verbose = false)
 {
     std::vector <bool> visited;
     visited.resize(g.no_vortex, false);
@@ -64,9 +66,10 @@ float Astar::exe(int start, int destination)
 
     prep(destination);
     //always push the negative value -> the priority queue is outputing max
-    q.push(std::make_pair(heuristic(start, destination), std::make_pair(0, start)));
+    q.push(std::make_pair(heuristic(start), std::make_pair(0, start)));
 
     int current_pos = start;
+    if(verbose) std::cout << "pos\tcost\theura" <<std::endl;
     while(!q.empty())
     {
         auto x = q.top();
@@ -76,6 +79,7 @@ float Astar::exe(int start, int destination)
         else visited[x.second.second] = true;
 
         current_pos = x.second.second;
+        if(verbose) std::cout << current_pos << "\t" << x.second.first << "\t" << heuristic(current_pos) << std::endl;
         if(x.second.second == destination) return -1 * x.second.first;
 
 
@@ -83,7 +87,7 @@ float Astar::exe(int start, int destination)
         {
             if(!visited[neighbour.first])
             {
-                q.push(std::make_pair(x.second.first - heuristic(neighbour.first, destination) - neighbour.second, std::make_pair(x.second.first - neighbour.second, neighbour.first)));
+                q.push(std::make_pair(x.second.first - heuristic(neighbour.first) - neighbour.second, std::make_pair(x.second.first - neighbour.second, neighbour.first)));
             }
         }
     }
