@@ -12,6 +12,9 @@
 #include <string>
 #include <iostream>
 
-class Astar {};
+class Astar
+{
+
+};
 
 #endif
