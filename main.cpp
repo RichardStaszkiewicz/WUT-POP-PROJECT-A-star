@@ -1,7 +1,9 @@
 
 #include "source/Compare.cpp"
 #include "Graph.hpp"
+#include "Dijkstra.hpp"
 
+#include <iostream>
 
 
 int main()

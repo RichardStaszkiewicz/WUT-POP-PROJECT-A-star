@@ -8,7 +8,7 @@ Dijkstra::Dijkstra(Graph g)
     set_Graph(g);
 }
 
-float Dijkstra::exe(int start, int destination)
+float Dijkstra::exe(int start, int destination, bool verbose)
 {
     // Priority queue to store vertices that are being processed.
     std::priority_queue<std::pair <float, int>, std::vector<std::pair <float, int>>, std::greater<std::pair <float, int>> > pq;
@@ -27,6 +27,7 @@ float Dijkstra::exe(int start, int destination)
         }
         dist[current] = pq.top().first;
         pq.pop();
+        if(verbose) std::cout << current << std::endl;
 
         // get all adjecent of current
         for (auto i : graph.connections[current]) {
