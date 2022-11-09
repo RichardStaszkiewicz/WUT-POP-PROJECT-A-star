@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <iostream>
 #include <list>
+#include <queue>
 
 Astar::Astar(Graph graph) : g(graph)
 {
@@ -52,6 +53,41 @@ float Astar::heuristic(int start, int destination)
 {
     if(vertex_dist[start] == 1000000) return 1000000;
     return prefix_sum[vertex_dist[start]];
+}
+
+float Astar::exe(int start, int destination)
+{
+    std::vector <bool> visited;
+    visited.resize(g.no_vortex, false);
+    std::priority_queue<std::pair <float, std::pair<float, int>>> q;
+    // heuristic_cost, true_cost, vertex
+
+    prep(destination);
+    //always push the negative value -> the priority queue is outputing max
+    q.push(std::make_pair(heuristic(start, destination), std::make_pair(0, start)));
+
+    int current_pos = start;
+    while(!q.empty())
+    {
+        auto x = q.top();
+        q.pop();
+
+        if(visited[x.second.second]) continue;
+        else visited[x.second.second] = true;
+
+        current_pos = x.second.second;
+        if(x.second.second == destination) return -1 * x.second.first;
+
+
+        for(auto neighbour : g.connections[current_pos])
+        {
+            if(!visited[neighbour.first])
+            {
+                q.push(std::make_pair(x.second.first - heuristic(neighbour.first, destination) - neighbour.second, std::make_pair(x.second.first - neighbour.second, neighbour.first)));
+            }
+        }
+    }
+    return -1;
 }
 
 std::vector <int> Astar::get_vertex_dist() {return vertex_dist;}
