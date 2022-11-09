@@ -14,11 +14,14 @@ find_package(GTest REQUIRED)
 add_subdirectory(${CMAKE_SOURCE_DIR}/lib)
 
 # add_executable(program main.cpp)
-add_executable(runGraphTest test/test_graph.cpp)
+# add_executable(runGraphTest test/test_graph.cpp)
+add_executable(runDijkstraTest test/test_dijkstra.cpp)
 
 # target_include_directories(program PUBLIC BEFORE ${CMAKE_SOURCE_DIR}/include)
-target_include_directories(runGraphTest PUBLIC BEFORE ${CMAKE_SOURCE_DIR}/include)
+# target_include_directories(runGraphTest PUBLIC BEFORE ${CMAKE_SOURCE_DIR}/include)
+target_include_directories(runDijkstraTest PUBLIC BEFORE ${CMAKE_SOURCE_DIR}/include)
 
 
 # target_link_libraries(program PUBLIC search_comp)
-target_link_libraries(runGraphTest search_comp ${GTEST_LIBRARIES} pthread)
+# target_link_libraries(runGraphTest search_comp ${GTEST_LIBRARIES} pthread)
+target_link_libraries(runDijkstraTest search_comp ${GTEST_LIBRARIES} pthread)
