@@ -14,10 +14,10 @@ Przykład takiego pliku i konstruowanego przezeń grafu znajduje się poniżej:
 ![](raport_data/test_graph.png)
 ```txt
 3 3 1
-1 2 4
-2 3 6
-1 3 20
-1 3
+0 1 4
+1 2 6
+0 2 20
+0 2
 ```
 
 Spodziewaną odpowiedzią programu `main.cpp` jest plik .csv zawierający P linii o formacie:

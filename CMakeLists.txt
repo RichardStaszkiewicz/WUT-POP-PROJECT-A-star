@@ -21,4 +21,4 @@ target_include_directories(runGraphTest PUBLIC BEFORE ${CMAKE_SOURCE_DIR}/includ
 
 
 # target_link_libraries(program PUBLIC search_comp)
-target_link_libraries(runGraphTest ${GTEST_LIBRARIES} pthread)
+target_link_libraries(runGraphTest search_comp ${GTEST_LIBRARIES} pthread)
