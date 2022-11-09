@@ -1,3 +1,11 @@
+/**
+ * @file Astar.cpp
+ * @author Staszkiewicz Richard (corresponding author)
+ * @author Bednarczyk Andrzej
+ * @date 09.11.2022
+ * @copyright GNU Public license
+ * */
+
 #include "Astar.hpp"
 #include "Graph.hpp"
 #include <vector>
@@ -8,15 +16,15 @@
 
 Astar::Astar(Graph graph) : g(graph)
 {
-    std::vector<float> temp = std::vector<float> {};
+    std::vector<float> temp = std::vector<float> {}; // to hold all found edges distances
     for(auto i : g.connections)
     {
         for(auto j : i) temp.push_back(j.second);
     }
-    std::sort(temp.begin(), temp.end());
+    std::sort(temp.begin(), temp.end()); // sorting those lengths
     std::vector<float> temp2 = std::vector<float> {};
-    for(int i = 0; i < int(temp.size()); i += 2) temp2.push_back(temp[i]);
-    prefix_sum.push_back(0);
+    for(int i = 0; i < int(temp.size()); i += 2) temp2.push_back(temp[i]); //each length in temp1 was doubled - we remove those doubles
+    prefix_sum = std::vector<float>{0};  // we initiate prefix sum with 0, as the distance of 0 edges from end is
     for(int i = 0; i < std::min(int(temp2.size()), g.no_vortex - 1); i++) prefix_sum.push_back(prefix_sum[i] + temp2[i]);
 }
 
@@ -26,6 +34,7 @@ void Astar::prep(int destination)
     std::vector <bool> visited;
     visited.resize(g.no_vortex, false);
     vertex_dist.resize(g.no_vortex, 1000000);
+    D = destination;
 
     visited[destination] = true;
     vertex_dist[destination] = 0;
