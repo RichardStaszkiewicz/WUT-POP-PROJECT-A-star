@@ -11,7 +11,7 @@ Mając przykładowe wejście w postaci pliku zawierającego:
 3. W następnych P liniach: S1 (nr wierzchołka początkowego), S2 (nr wierzchołka końcowego)
 
 Przykład takiego pliku i konstruowanego przezeń grafu znajduje się poniżej:
-![]("raport_data/test_graph.png")
+![](raport_data/test_graph.png)
 ```txt
 3 3 1
 1 2 4
@@ -26,8 +26,17 @@ Spodziewaną odpowiedzią programu `main.cpp` jest plik .csv zawierający P lini
 ```
 
 ## Rozwiązanie
-W trkcie algorytmu zaimplementowano następujące algorytmy
+Zaimplementowano klasę Graph do przechowywania reprezentacji grafu.
 
+W trakcie prac zaimplementowano następujące algorytmy:
+1. A* - obsługiwany przez klasę Astar
+2. Dijkstra - obsługiwany przez klasę Dijkstra
+3. Brut - obsługiwany przez klasę Brut
+
+Oprogramowanie tworzono z pomocą technik TDD na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
+
+## Dokumentacja
+Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen.
 
 ## Licencja
 MIT GNU Open Licence
