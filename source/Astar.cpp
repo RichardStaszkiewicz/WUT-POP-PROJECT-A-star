@@ -30,17 +30,19 @@ Astar::Astar(Graph graph) : g(graph)
 
 void Astar::prep(int destination)
 {
-    std::list <std::pair<int, int>> q;
-    std::vector <bool> visited;
-    visited.resize(g.no_vortex, false);
-    vertex_dist.resize(g.no_vortex, 1000000);
-    D = destination;
+    std::list <std::pair<int, int>> q; // BFS queue
+    std::vector <bool> visited; // BFS visited vertexx
+    visited.resize(g.no_vortex, false); // initially, no vertex were visited
+    vertex_dist.resize(g.no_vortex, 1000000); // Distance is initiated to be very meaningfull for potentially disconnected graphs
+    D = destination; // Updating the Destination point
 
     visited[destination] = true;
     vertex_dist[destination] = 0;
 
+    // Queue consists of pair (vertex index, distance from destination)
     q.push_back(std::pair<int, int>{destination, 0});
 
+    // BFS
     while(!q.empty())
     {
         std::pair<int, int> s = q.front();
@@ -48,10 +50,10 @@ void Astar::prep(int destination)
 
         for(auto neighbour : g.connections[s.first])
         {
-            if(!visited[neighbour.first])
+            if(!visited[neighbour.first]) // we do not update the vertexes already visited
             {
                 visited[neighbour.first] = true;
-                vertex_dist[neighbour.first] = s.second+1;
+                vertex_dist[neighbour.first] = s.second+1; //updating the distance based on current vertex
                 q.push_back(std::pair<int, int>{neighbour.first, s.second+1});
             }
         }
@@ -60,7 +62,7 @@ void Astar::prep(int destination)
 
 float Astar::heuristic(int start)
 {
-    if(vertex_dist[start] == 1000000) return 1000000;
+    if(vertex_dist[start] == 1000000) return 1000000; // for disconnected graphs, heuristic shall be extra-large
     return prefix_sum[vertex_dist[start]];
 }
 
@@ -69,9 +71,10 @@ float Astar::exe(int start, int destination, bool verbose = false)
     std::vector <bool> visited;
     visited.resize(g.no_vortex, false);
     std::priority_queue<std::pair <float, std::pair<float, int>>> q;
-    // heuristic_cost, true_cost, vertex
+    // the priority queue is sorted by first argument, hold (heuristic cost to dest, true cost from start, vertex index)
 
     prep(destination);
+
     //always push the negative value -> the priority queue is outputing max
     q.push(std::make_pair(heuristic(start), std::make_pair(0, start)));
 
@@ -82,14 +85,17 @@ float Astar::exe(int start, int destination, bool verbose = false)
         auto x = q.top();
         q.pop();
 
-        if(visited[x.second.second]) continue;
+        if(visited[x.second.second]) continue; //we do not visit again already visited vertex
         else visited[x.second.second] = true;
 
         current_pos = x.second.second;
+        // printing if verbose the vertexes visited in order as searched
         if(verbose) std::cout << current_pos << "\t" << x.second.first << "\t" << heuristic(current_pos) << std::endl;
+
+        // exit with the first found result
         if(x.second.second == destination) return -1 * x.second.first;
 
-
+        // push neighbours to the priority queue to await the judgement
         for(auto neighbour : g.connections[current_pos])
         {
             if(!visited[neighbour.first])
@@ -98,6 +104,7 @@ float Astar::exe(int start, int destination, bool verbose = false)
             }
         }
     }
+    // for potential errors, the computing results in -1 error: No raute found.
     return -1;
 }
 
