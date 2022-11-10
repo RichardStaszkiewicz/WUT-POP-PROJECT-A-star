@@ -30,7 +30,7 @@ Zaimplementowano klasę Graph do przechowywania reprezentacji grafu.
 W trakcie prac zaimplementowano następujące algorytmy:
 1. A* - obsługiwany przez klasę Astar
 2. Dijkstra - obsługiwany przez klasę Dijkstra
-3. Brut - obsługiwany przez klasę Brut
+3. Bellman-Ford - uznawany za brutalne przeszukiwanie, obsługiwany przez klasę Brut
 
 Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
 
@@ -38,13 +38,13 @@ Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie bibl
 ## Omówienie algorytmów
 
 ### Brutalny
-Algorytm brutalny przeszukuje wyczerpująco zbiór rozwiązań znajdując minimalną ścieżkę. Działa w złożoności O(n^2).
+Algorytm brutalny przeszukuje wyczerpująco zbiór rozwiązań algorytmem Bellmana-Forda znajdując minimalną ścieżkę. Algorytm |V-1| razy rozpręża każdą krawędź, sprawdzając czy z jej pomocą odległość między startem a celem się zmniejszy. Działa w złożoności O(VE).
 
 ### Dijkstra
-Algorytm Dijkstry przeszukuje graf na podstawie ciągłego rozszerzania podobnego do BFS, gdzie kolejka jest parametryzowana odległością od wierzchołka startowego.
+Algorytm Dijkstry przeszukuje graf na podstawie ciągłego rozszerzania podobnego do BFS, gdzie kolejka jest parametryzowana odległością od wierzchołka startowego. Ze względu na użycie bibliotecznej struktury kolejki priorytetowej zaimplementowanej w oparciu o kopiec Fibbonacciego, a więc dodającej log przy każdym włożeniu do kolejki, złożoność czasowa algorytmu wynosi O((V+E)logV)
 
 ### A*
-Algorytm A* ma idę taką samą ajk Dijkstra, ale kolejkę parametryzuje nie odległość rzeczywista wierzchołka początkowego, a jej suma z estymowaną heurystycznie odległością wierzchołek-cel. W tym konkretnym zadaniu, ponieważ graf nie leży w metryce miejskiej na potrzeby algorytmu założono że posiadamy wcześniejszzą informację o ilości krawędzi dzielących wierzchołek od celu. Wówczas funkcja heurystyczna dopuszczalna i monotoniczna przy założeniu dodatnich krawędzi sprowadza się do założenia, że na ścieżce prowadzącej do celu znajdują się tylko krawędzie o najmniejszej długości w grafie.
+Algorytm A* ma idę taką samą ajk Dijkstra, ale kolejkę parametryzuje nie odległość rzeczywista wierzchołka początkowego, a jej suma z estymowaną heurystycznie odległością wierzchołek-cel. W tym konkretnym zadaniu, ponieważ graf nie leży w metryce miejskiej na potrzeby algorytmu założono że posiadamy wcześniejszzą informację o ilości krawędzi dzielących wierzchołek od celu. Wówczas funkcja heurystyczna dopuszczalna i monotoniczna przy założeniu dodatnich krawędzi sprowadza się do założenia, że na ścieżce prowadzącej do celu znajdują się tylko krawędzie o najmniejszej długości w grafie. Ze względu na heurystyczną naturę rozwiązania nie można przeprowadzić analizy złożoności czasowej, jednak można bezpiecznie przyjąć że przy dobrze dobranej funkcji heurystycznej algorytm w najgorszym wypadku degraduje się do algorytmu Dijkstry o złożoności O((V+E)logV).
 
 ## Grafy testowe
 ### Test 1
