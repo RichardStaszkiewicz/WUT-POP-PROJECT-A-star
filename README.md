@@ -87,7 +87,7 @@ Podczas badania pominięto testy 1-4 ze względu na małą wielkość.
 
 ### Czasowe
 Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
-| Graf | Ilość zapytań | A* | Dijkstra | Brut | Jednostka czasu |
+| Graf | Ilość zapytań | Brut | Dijkstra | A* | Jednostka czasu |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | test5 | 1 | 1.05057e+09 | 1.06856e+07 | 1.21804e+07 | nanosekundy |
 | test6 | 1 | 2.49062e+08 | 1300 | 1500 | nanosekundy |
@@ -101,7 +101,7 @@ Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
 ### Optymalizacyjne
 Podczas przeprowadzania testów otrzymano następujące rezultaty optymalizacji długości ścieżki:
 Rozpatrywane jest pierwsze zapytanie każdej serii.
-| Graf | Optimum globalne | A* | Dijkstra | Brut |
+| Graf | Optimum globalne | Brut | Dijkstra | A* |
 | :---: | :---: | :---: | :---: | :---: |
 | test5 | 12 | 12 | 12 | 12 |
 | test6 | 19 | 19 | 19 | 19 |
