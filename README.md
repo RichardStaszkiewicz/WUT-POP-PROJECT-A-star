@@ -60,14 +60,14 @@ Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednim
 
 | Graf | Ilość wierzchołków | Ilość krawędzi | Ilość zapytań | cechy |
 | :---: | :---: | :---: | :---: |  :---: |
-| test5 | 1 | 1000 | 1000 | 1000 |
-| test6 | 1 | 1900 | 1600 | 1000 |
-| test7 | 1 | 1900 | 1600 | 1000 |
-| test8 | 1 | 1900 | 1600 | 1000 |
-| test9 | 1 | 1900 | 1600 | 1000 |
-| test10 | 1 | 1900 | 1600 | 1000 |
-| test11 | 1 | 1 | 1 | 1000 |
-| test12 | 1 | 1900 | 1600 | 1000 |
+| test5 | 1 000 | 499 500 | 1 | Graf pełny |
+| test6 | 10 000 | 9 999 | 1 | Ścieżka |
+| test7 | 25 000 | 24 999 | 1 | Ścieżka |
+| test8 | 100 | 2 442 | 1 | Graf randomizowany |
+| test9 | 1 000 | 249 987 | 1 | Graf randomizowany |
+| test10 | 25 000 | 3 127 883 | 1 | Graf randomizowany |
+| test11 | 50 000 | 1 249 505 | 1 | Graf randomizowany |
+| test12 | 1 000 | 1 000 | 1 | Cykl |
 
 ## Rezultaty
 
