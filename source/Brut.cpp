@@ -13,8 +13,6 @@ float Brut::exe(int start, int destination)
     std::queue<std::pair <int, float>> q;
     //vector to store distances of all vertices from the source vertex.
     std::vector<int> dist(graph.no_vortex, INF);
-    //vector to store visited vertexes
-    std::vector<int> visited(graph.no_vortex, 0);
     // Insert source itself in priority queue and initialize its distance as 0.
 
     dist[start] = 0;
