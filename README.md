@@ -89,14 +89,14 @@ Podczas badania pominięto testy 1-4 ze względu na małą wielkość.
 Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
 | Graf | Ilość zapytań | A* | Dijkstra | Brut | Jednostka czasu |
 | :---: | :---: | :---: | :---: | :---: | :---: |
-| test5 | 1 | 4.9045e+07 | 1.18336e+07 | 1.45588e+07 | nanosekundy |
-| test6 | 1 | 119 200 | 1 600 | 670 400 | nanosekundy |
-| test7 | 1 | 439 700 | 5 600 | 1.3103e+06 | nanosekundy |
-| test8 | 1 | 240 300 | 47 200 | 62 500 | nanosekundy |
-| test9 | 1 | 4.21576e+07 | 6.7516e+06 | 7.8259e+06 | nanosekundy |
-| test10 | 1 | 3.78377e+09 | 8.91054e+07 | 1.23823e+08 | nanosekundy |
-| test11 | 1 | 4.51827e+09 | 5.25152e+07 | 8.51126e+07 | nanosekundy |
-| test12 | 1 | 2.2927e+06 | 11600 | 52200 | nanosekundy |
+| test5 | 1 | 1.05057e+09 | 1.06856e+07 | 1.21804e+07 | nanosekundy |
+| test6 | 1 | 2.49062e+08 | 1300 | 1500 | nanosekundy |
+| test7 | 1 | 1.40687e+09 | 3500 | 1400 | nanosekundy |
+| test8 | 1 | 572200 | 54600 | 60500 | nanosekundy |
+| test9 | 1 | 5.04779e+08 | 6.6618e+06 | 6.6838e+06 | nanosekundy |
+| test10 | 1 | 1.72827e+11 | 7.28311e+07 | 8.6898e+07 | nanosekundy |
+| test11 | 1 | 1.71237e+11 | 5.00524e+07 | 5.68417e+07 | nanosekundy |
+| test12 | 1 | 2.6189e+06 | 12700 | 500 | nanosekundy |
 
 ### Optymalizacyjne
 Podczas przeprowadzania testów otrzymano następujące rezultaty optymalizacji długości ścieżki:
