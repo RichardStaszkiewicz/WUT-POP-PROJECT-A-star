@@ -126,8 +126,6 @@ W grafie pełnym można zaobserwować prawie że degenerację algorytmu A* do al
 #### Ścieżka
 W grafie o formie ścieżki zapytania w przeprowadzonych eksperymentach dotyczyły wierzchołków leżących obok siebie. Algorytm A* sprawdza się najlepiej, coraz bardziej zniechęcany heurystyką do poruszania się w złym kierunku, w którym Dijkstra będzie się poruszała tak długo, póty suma wag przebytej ścieżki nie będzie większa od wagi krawędzi łączącej start z celem. Ponieważ wagi zainicjowane są losowo, ilość sprawdzonych przez Dijkstrę wierzchołków będzie miała rozkład geometryczny o parametrze 0.5. Rozwiązanie brutalne tymczasem jest postawione przed najoptymalniejszym przypadkiem grafu spójnego, działając jednak wciąż nieakceptowalnie wolno.
 
-## Podsumowanie
-
 ## Dokumentacja
 Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen i generuje się po skonfigurowaniu projektu CMake w katalogu głównym projektu w folderze `doc` w formie HTML oraz LaTeX. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.
 
