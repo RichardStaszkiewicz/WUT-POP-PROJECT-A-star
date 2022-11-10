@@ -8,7 +8,7 @@
 
 int main()
 {
-    Graph graph(std::string("../test/test_data/test1"), false);
+    Graph graph(std::string("../test/test_data/test4"), false);
     Compare(graph);
     return 0;
 }

@@ -17,7 +17,7 @@ float Dijkstra::exe(int start, int destination, bool verbose)
     // Insert source itself in priority queue and initialize its distance as 0. 
     pq.push(std::make_pair(0, start));
     // Looping until end reach
-    while (dist[destination] == INF)
+    while (dist[destination] == INF && !pq.empty())
     {
         // get the vertex with minimum distance value
         int current = pq.top().second;
@@ -42,6 +42,7 @@ float Dijkstra::exe(int start, int destination, bool verbose)
             }
         }
     }
+    if (dist[destination] == INF) return -1;
     return dist[destination];
 }
 void Dijkstra::set_Graph(Graph graph)
