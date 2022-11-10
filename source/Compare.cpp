@@ -4,20 +4,27 @@
 
 #include <chrono>
 #include <iostream>
+#include <fstream>
 
-void Compare(Graph graph)
+void Compare(Graph graph, bool toFile = false, std::string FileName = "")
 {
     float time = 0;
+
+    std::ofstream myfile (FileName);
+
+    float weight = 0;
     for(auto query : graph.questions)
     {
         Brut brut(graph);
         auto begin = std::chrono::high_resolution_clock::now();
-        brut.exe(query.first, query.second);
+        weight = brut.exe(query.first, query.second);
         auto end = std::chrono::high_resolution_clock::now();
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         time += elapsed.count();
     }
     std::cout << "Elapsed brut time in nanoseconds : " << time << " ns" << std::endl;
+    if (toFile)
+        myfile << "Brut: " << time << ", " <<  weight << "\n";
 
     time = 0;
     for(auto query : graph.questions)
@@ -30,6 +37,8 @@ void Compare(Graph graph)
         time += elapsed.count();
     }
     std::cout << "Elapsed Dijkstra time in nanoseconds : " << time << " ns" << std::endl;
+    if (toFile)
+        myfile << "Dijkstra: " << time << ", " <<  weight << "\n";
 
     time = 0;
     Astar astar(graph);
@@ -43,4 +52,9 @@ void Compare(Graph graph)
         time += elapsed.count();
     }
     std::cout << "Elapsed A* time in nanoseconds : " << time << " ns" << std::endl;
+
+    if (toFile)
+        myfile << "A*: " << time << ", " <<  weight;
+
+    myfile.close();
 }
