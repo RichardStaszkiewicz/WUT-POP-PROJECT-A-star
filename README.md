@@ -38,19 +38,19 @@ Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie bibl
 ## Grafy testowe
 ### Test 1
 Prosty graf w kształcie trójąta. Jedyne zapytanie prosi o najkrótszą ścieżkę pomiędzy wierzchołkami przebiegającą przez trzeci z nich.
-![](raport_data/test01)
+![](raport_data/test1.png)
 
 ### Test 2
 Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednimi wierzchołkami, gdzie optymalna droga prowadzi nei przez łączącą krawędź, a przez całą resztę cyklu.
-![](raport_data/test02)
+![](raport_data/test2.png)
 
 ### Test 3
 Średniej wielkości graf łączący punktem artykulacji cykl z grafem o dwóch obiegach. Jeden punkt pozostaje bez połączeń. Jedyno zapytanie prosi o znalezienie drogi pomiędzy punktem w cyklu a jednym z punktów artykulacyjnych obiegów. Drugie prosi o znalezienie ścieżki z punktu wolnego do grafu.
-![](raport_data/test03)
+![](raport_data/test3.png)
 
 ### Test 4
 Średniej wielkości graf rozłączny skłądający się z kliki 4 wierzchołków z dołączoną krawędzią do piątego i łańcucha trzech wierzchołków. Pierwsze zapytanie prosi o znalezienie ścieżki pomiędzy kliką a łańcuchem.
-![](raport_data/test04)
+![](raport_data/test4.png)
 
 ### Test 5
 Graf pełny o 1000 wierzchołków.
