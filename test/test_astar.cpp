@@ -35,25 +35,32 @@ TEST(functionality_tests, basic_heuristic)
     EXPECT_EQ(alg1.heuristic(0), 4);
 }
 
-TEST(example_tests, execution_test1)
+TEST(exe_tests, execution_test1)
 {
     Graph g(std::string("../test/test_data/test1"), false);
     Astar alg1(g);
     EXPECT_EQ(alg1.exe(0, 2, false), 10);
 }
 
-TEST(example_tests, execution_test2)
+TEST(exe_tests, execution_test2)
 {
     Graph g(std::string("../test/test_data/test2"), false);
     Astar alg1(g);
     EXPECT_EQ(alg1.exe(3, 1, false), 80);
 }
 
-TEST(example_tests, execution_test3)
+TEST(exe_tests, execution_test3)
 {
     Graph g(std::string("../test/test_data/test3"), false);
     Astar alg1(g);
     EXPECT_EQ(alg1.exe(4, 5, false), 24);
+}
+
+TEST(edge_tests, disconnected_test3)
+{
+    Graph g(std::string("../test/test_data/test3"), false);
+    Astar alg1(g);
+    EXPECT_EQ(alg1.exe(6, 0, false), -1);
 }
 
 
