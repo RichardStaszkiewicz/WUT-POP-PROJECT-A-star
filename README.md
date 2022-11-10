@@ -98,8 +98,8 @@ Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
 | test11 | 1 | 4.51827e+09 | 5.25152e+07 | 8.51126e+07 | nanosekundy |
 | test12 | 1 | 2.2927e+06 | 11600 | 52200 | nanosekundy |
 
-### Ilościowe
-Podczas przeprowadzania testów otrzymano następujące rezultaty ilościowe.
+### Optymalizacyjne
+Podczas przeprowadzania testów otrzymano następujące rezultaty optymalizacji długości ścieżki:
 Rozpatrywane jest pierwsze zapytanie każdej serii.
 | Graf | Optimum globalne | A* | Dijkstra | Brut |
 | :---: | :---: | :---: | :---: | :---: |
@@ -110,18 +110,26 @@ Rozpatrywane jest pierwsze zapytanie każdej serii.
 | test9 | 26 | 26 | 26 | 26 |
 | test10 | 49 | 49 | 49 | 49 |
 | test11 | 256 | 256 | 256 | 256 |
-| test12 | 124 | 124 | 124 | 124 | 
+| test12 | 124 | 124 | 124 | 124 |
 
 
 ## Dyskusja wyników
 
-### Graf pełny
-W grafie pełnym można zaobserwować prawie że degenerację algorytmu A* do algorytmu Dijkstry, co potwierdzają rezultaty czasowe. Ponieważ wyznacznik heurystyki, tj. odległość w krawędziach od punktu końcowego jest wszędzie równa 1, wartość heurystyki prawie wszędzie taka sama (oprócz oczywiście punktu końcowego). Wciąż jest on potencjalnie marginalnie szybszy ze względu na drobną preferencję w stosunku do wybrania punktu końcowego (dokładniej - punkt końcowy ma odległość zmniejszoną o wagę najmniejszej krawędzi), co ma znaczenie odwrotnieproporcjonalne do wariancji rozkładu wag w grafie.
+### Rezultaty optymalizacji
+Wskazać należy że odległości uzyskane przez każdy algorytm są odległościami równymi i globalnnie optymalnymi. O ile algorytmy Dijkstry oraz Bellmana-Forda są formalnie zobligowane do takiego zachowania, o tyle przy algorytmie A* może być to wprowadzać w konsternację.
+Prostym uzaasadnieniem takich rezultatów, jest fakt iż dla dobranej funkcji heurystycznej można przeprowadzić dowód że podejmowane przez nią decyzje będą nie gordze niż te podejmowane przez algorytm Dijkstry (wynika to z jej dopuszczalności i monotoniczności). W związku z tą informacją, wiedząc że pierszą wyszukaną ścieżką przez algorytm Dijkstry jest optimum przez implikację przenosimy tę cechę na obecnie przedstawioną implementację A*.
+
+### Interesujące zależności
+#### Graf pełny
+W grafie pełnym można zaobserwować prawie że degenerację algorytmu A* do algorytmu Dijkstry, co potwierdzają rezultaty czasowe. Ponieważ wyznacznik heurystyki, tj. odległość w krawędziach od punktu końcowego jest wszędzie równa 1, wartość heurystyki prawie wszędzie taka sama (oprócz oczywiście punktu końcowego). Wciąż jest on potencjalnie marginalnie szybszy ze względu na drobną preferencję w stosunku do wybrania punktu końcowego (dokładniej - punkt końcowy ma odległość zmniejszoną o wagę najmniejszej krawędzi), co ma znaczenie odwrotnieproporcjonalne do wariancji rozkładu wag w grafie. Algorytm brutalny przeszukując każdą ścieżkę grafu pełnego jest postawiony przed najmniej optymalnym przypadkiem możliwym dla zadanej wymiarowości V.
+
+#### Ścieżka
+W grafie o formie ścieżki zapytania w przeprowadzonych eksperymentach dotyczyły wierzchołków leżących obok siebie. Algorytm A* sprawdza się najlepiej, coraz bardziej zniechęcany heurystyką do poruszania się w złym kierunku, w którym Dijkstra będzie się poruszała tak długo, póty suma wag przebytej ścieżki nie będzie większa od wagi krawędzi łączącej start z celem. Ponieważ wagi zainicjowane są losowo, ilość sprawdzonych przez Dijkstrę wierzchołków będzie miała rozkład geometryczny o parametrze 0.5. Rozwiązanie brutalne tymczasem jest postawione przed najoptymalniejszym przypadkiem grafu spójnego, działając jednak wciąż nieakceptowalnie wolno.
 
 ## Podsumowanie
 
 ## Dokumentacja
-Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.
+Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen i generuje się po skonfigurowaniu projektu CMake w katalogu głównym projektu w folderze `doc` w formie HTML oraz LaTeX. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.
 
 ## Licencja
 MIT GNU Open Licence
