@@ -33,10 +33,23 @@ W trakcie prac zaimplementowano następujące algorytmy:
 2. Dijkstra - obsługiwany przez klasę Dijkstra
 3. Brut - obsługiwany przez klasę Brut
 
-Oprogramowanie tworzono z pomocą technik TDD na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
+Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
 
+
+## Testy
+### Test 1
+Prosty graf w kształcie trójąta przedstawiony w dziale Interpretacja.
+
+### Test 2
+Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednimi wierzchołkami, gdzie optymalna droga prowadzi nei przez łączącą krawędź, a przez całą resztę cyklu.
+
+### Test 3
+Średniej wielkości graf łączący punktem artykulacji cykl z grafem o dwóch obiegach. Jeden punkt pozostaje bez połączeń. Jedyno zapytanie prosi o znalezienie drogi pomiędzy punktem w cyklu a jednym z punktów artykulacyjnych obiegów. Drugie prosi o znalezienie ścieżki z punktu wolnego do grafu.
+
+### Test 4
+Średniej wielkości graf rozłączny skłądający się z kliki 4 wierzchołków z dołączoną krawędzią do piątego i łańcucha trzech wierzchołków. Pierwsze zapytanie prosi o znalezienie ścieżki pomiędzy kliką a łańcuchem.
 ## Dokumentacja
-Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen.
+Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.
 
 ## Licencja
 MIT GNU Open Licence
