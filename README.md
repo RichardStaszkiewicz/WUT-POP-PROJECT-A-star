@@ -103,14 +103,14 @@ Podczas przeprowadzania testów otrzymano następujące rezultaty ilościowe.
 Rozpatrywane jest pierwsze zapytanie każdej serii.
 | Graf | Optimum globalne | A* | Dijkstra | Brut |
 | :---: | :---: | :---: | :---: | :---: |
-| test5 | 1 | 12 | 12 | 12 |
-| test6 | 1 | 19 | 19 | 19 |
-| test7 | 1 | 426 | 426 | 426 |
-| test8 | 1 | 156 | 156 | 156 |
-| test9 | 1 | 26 | 26 | 26 |
-| test10 | 1 | 49 | 49 | 49 |
-| test11 | 1 | 256 | 256 | 256 |
-| test12 | 1 | 124 | 124 | 124 | 
+| test5 | 12 | 12 | 12 | 12 |
+| test6 | 19 | 19 | 19 | 19 |
+| test7 | 426 | 426 | 426 | 426 |
+| test8 | 156 | 156 | 156 | 156 |
+| test9 | 26 | 26 | 26 | 26 |
+| test10 | 49 | 49 | 49 | 49 |
+| test11 | 256 | 256 | 256 | 256 |
+| test12 | 124 | 124 | 124 | 124 | 
 
 
 ## Dyskusja wyników
