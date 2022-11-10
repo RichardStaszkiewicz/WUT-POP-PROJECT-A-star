@@ -38,18 +38,22 @@ Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie bibl
 ## Grafy testowe
 ### Test 1
 Prosty graf w kształcie trójąta. Jedyne zapytanie prosi o najkrótszą ścieżkę pomiędzy wierzchołkami przebiegającą przez trzeci z nich.
+
 ![](raport_data/test1.png)
 
 ### Test 2
 Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednimi wierzchołkami, gdzie optymalna droga prowadzi nei przez łączącą krawędź, a przez całą resztę cyklu.
+
 ![](raport_data/test2.png)
 
 ### Test 3
 Średniej wielkości graf łączący punktem artykulacji cykl z grafem o dwóch obiegach. Jeden punkt pozostaje bez połączeń. Jedyno zapytanie prosi o znalezienie drogi pomiędzy punktem w cyklu a jednym z punktów artykulacyjnych obiegów. Drugie prosi o znalezienie ścieżki z punktu wolnego do grafu.
+
 ![](raport_data/test3.png)
 
 ### Test 4
 Średniej wielkości graf rozłączny skłądający się z kliki 4 wierzchołków z dołączoną krawędzią do piątego i łańcucha trzech wierzchołków. Pierwsze zapytanie prosi o znalezienie ścieżki pomiędzy kliką a łańcuchem.
+
 ![](raport_data/test4.png)
 
 ### Test 5
@@ -72,6 +76,17 @@ Graf w losowy o wypełnieniu 50% mający 25k wierzchołków.
 
 ### Test 11
 Graf w losowy o wypełnieniu 20% mający 50k wierzchołków.
+
+## Rezultaty
+Podczas przeprowadzania testów czasowych otrzymano następujące rezultaty ilościowe:
+| Graf | Ilość zapytań | A* | Dijkstra | Brut | Jednostka czasu |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| test1 | 1 | 1000 | 1000 | 1400 | nanosekundy |
+| test2 | 1 |
+
+## Dyskusja wyników
+
+## Podsumowanie
 
 ## Dokumentacja
 Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.

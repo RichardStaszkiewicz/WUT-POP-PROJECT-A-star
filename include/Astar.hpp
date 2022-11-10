@@ -59,7 +59,7 @@ class Astar
         /// @param destination The index of destination point of the graph
         /// @param verbose Flag of wether user wants algorithm to raport raute on terminal
         /// @return The value of the shortest raute between start & destination as percived by A*
-        float exe(int start, int destination, bool verbose);
+        float exe(int start, int destination, bool verbose = false);
 
         /// @brief Getter for Astar::vertex_dist attribute
         /// @return Astar::vertex_dist attribute

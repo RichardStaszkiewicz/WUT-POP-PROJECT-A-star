@@ -66,7 +66,7 @@ float Astar::heuristic(int start)
     return prefix_sum[vertex_dist[start]];
 }
 
-float Astar::exe(int start, int destination, bool verbose = false)
+float Astar::exe(int start, int destination, bool verbose)
 {
     std::vector <bool> visited;
     visited.resize(g.no_vortex, false);
