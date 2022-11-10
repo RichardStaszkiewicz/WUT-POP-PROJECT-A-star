@@ -63,6 +63,13 @@ TEST(edge_tests, disconnected_test3)
     EXPECT_EQ(alg1.exe(6, 0, false), -1);
 }
 
+TEST(edge_tests, disconnected_test4)
+{
+    Graph g(std::string("../test/test_data/test4"), false);
+    Astar alg1(g);
+    EXPECT_EQ(alg1.exe(0, 6, false), -1);
+}
+
 
 int main(int argc, char **argv)
 {
