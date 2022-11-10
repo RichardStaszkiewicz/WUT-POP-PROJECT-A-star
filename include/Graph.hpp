@@ -46,7 +46,7 @@ class Graph
         /// @brief Constructor with input file
         /// @param dir Path to file where graph data is provided
         /// @param verbose Flag wether to make data loading interactive. Default: False.
-        Graph(std::string dir, bool verbose);
+        Graph(std::string dir, bool verbose = false);
 };
 
 #endif

@@ -4,11 +4,16 @@
 #include "Dijkstra.hpp"
 
 #include <iostream>
-
+#include <filesystem>
 
 int main()
 {
-    Graph graph(std::string("../test/test_data/test1"), false);
-    Compare(graph);
+    for (const auto& dirEntry : std::filesystem::__cxx11::recursive_directory_iterator("../test/test_data/")){
+        std::cout << dirEntry.path() << std::endl;
+        std::filesystem::path p(dirEntry.path());
+        Graph graph(std::string(dirEntry.path()), false);
+        Compare(graph, true, "../test/test_timed/" + std::string(p.filename()) );
+    }
+
     return 0;
 }

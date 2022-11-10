@@ -28,6 +28,18 @@ TEST(example_tests, exe1)
     ASSERT_EQ(brut.exe(2, 1), 6);
 }
 
+TEST(example_tests, exe_disconnected)
+{
+    Graph graph(std::string("../test/test_data/test3"), false);
+    Brut brut(graph);
+    ASSERT_EQ(brut.exe(6, 0), -1);
+}
+TEST(example_tests, exe_disconnected2)
+{
+    Graph graph(std::string("../test/test_data/test4"), false);
+    Brut brut(graph);
+    ASSERT_EQ(brut.exe(0, 6), -1);
+}
 int main(int argc, char **argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
