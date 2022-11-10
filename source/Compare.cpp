@@ -6,7 +6,7 @@
 #include <iostream>
 #include <fstream>
 
-void Compare(Graph graph, bool toFile = false, std::string FileName = "")
+void Compare(Graph graph, bool toFile = false, std::string FileName = "", bool verbose = false)
 {
     float time = 0;
 
@@ -22,7 +22,8 @@ void Compare(Graph graph, bool toFile = false, std::string FileName = "")
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         time += elapsed.count();
     }
-    std::cout << "Elapsed brut time in nanoseconds : " << time << " ns" << std::endl;
+    if(verbose)
+        std::cout << "Elapsed brut time in nanoseconds : " << time << " ns" << std::endl;
     if (toFile)
         myfile << "Brut: " << time << ", " <<  weight << "\n";
 
@@ -36,7 +37,8 @@ void Compare(Graph graph, bool toFile = false, std::string FileName = "")
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         time += elapsed.count();
     }
-    std::cout << "Elapsed Dijkstra time in nanoseconds : " << time << " ns" << std::endl;
+    if(verbose)
+        std::cout << "Elapsed Dijkstra time in nanoseconds : " << time << " ns" << std::endl;
     if (toFile)
         myfile << "Dijkstra: " << time << ", " <<  weight << "\n";
 
@@ -51,7 +53,8 @@ void Compare(Graph graph, bool toFile = false, std::string FileName = "")
         auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
         time += elapsed.count();
     }
-    std::cout << "Elapsed A* time in nanoseconds : " << time << " ns" << std::endl;
+    if(verbose)
+        std::cout << "Elapsed A* time in nanoseconds : " << time << " ns" << std::endl;
 
     if (toFile)
         myfile << "A*: " << time << ", " <<  weight;
