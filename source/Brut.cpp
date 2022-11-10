@@ -44,6 +44,7 @@ float Brut::exe(int start, int destination)
             }
         }
     }
+    if (dist[destination] == INF) return -1;
     return dist[destination];
 
     
