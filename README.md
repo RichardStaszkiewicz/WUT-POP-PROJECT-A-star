@@ -10,8 +10,7 @@ Mając przykładowe wejście w postaci pliku zawierającego:
 2. W następnych K liniach: S1 (nr wierzchołka początkowego), S2 (nr wierzchołka końcowego), D (odległość)
 3. W następnych P liniach: S1 (nr wierzchołka początkowego), S2 (nr wierzchołka końcowego)
 
-Przykład takiego pliku i konstruowanego przezeń grafu znajduje się poniżej:
-![](raport_data/test_graph.png)
+Przykład takiego pliku w postaci `test1` znajduje się poniżej:
 ```txt
 3 3 1
 0 1 4
@@ -36,18 +35,44 @@ W trakcie prac zaimplementowano następujące algorytmy:
 Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
 
 
-## Testy
+## Grafy testowe
 ### Test 1
-Prosty graf w kształcie trójąta przedstawiony w dziale Interpretacja.
+Prosty graf w kształcie trójąta. Jedyne zapytanie prosi o najkrótszą ścieżkę pomiędzy wierzchołkami przebiegającą przez trzeci z nich.
+![](raport_data/test01)
 
 ### Test 2
 Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednimi wierzchołkami, gdzie optymalna droga prowadzi nei przez łączącą krawędź, a przez całą resztę cyklu.
+![](raport_data/test02)
 
 ### Test 3
 Średniej wielkości graf łączący punktem artykulacji cykl z grafem o dwóch obiegach. Jeden punkt pozostaje bez połączeń. Jedyno zapytanie prosi o znalezienie drogi pomiędzy punktem w cyklu a jednym z punktów artykulacyjnych obiegów. Drugie prosi o znalezienie ścieżki z punktu wolnego do grafu.
+![](raport_data/test03)
 
 ### Test 4
 Średniej wielkości graf rozłączny skłądający się z kliki 4 wierzchołków z dołączoną krawędzią do piątego i łańcucha trzech wierzchołków. Pierwsze zapytanie prosi o znalezienie ścieżki pomiędzy kliką a łańcuchem.
+![](raport_data/test04)
+
+### Test 5
+Graf pełny o 1000 wierzchołków.
+
+### Test 6
+Graf w postaciłańcucha o 10k wierzchołkach.
+
+### Test 7
+Graf w postaci łąńcucha o 25k wierzchołkach.
+
+### Test 8
+Graf w losowy o wypełnieniu 50% mający 5k wierzchołków.
+
+### Test 9
+Graf w losowy o wypełnieniu 50% mający 10k wierzchołków.
+
+### Test 10
+Graf w losowy o wypełnieniu 50% mający 25k wierzchołków.
+
+### Test 11
+Graf w losowy o wypełnieniu 20% mający 50k wierzchołków.
+
 ## Dokumentacja
 Dokumentacja została skompilowana na podstawie komentarzy z pomocą narzędzia DoxyGen. Wskazane w raporcie wizualizacje grafów dokonano z pomocą narzędzia https://csacademy.com/app/graph_editor/.
 
