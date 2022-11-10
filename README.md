@@ -35,6 +35,17 @@ W trakcie prac zaimplementowano następujące algorytmy:
 Oprogramowanie tworzono z pomocą technik TDD na z testowaniem na podstawie biblioteki GTest. Każda z klas jest testowana w osobnym pliku i była tworzona rozdzielnie od reszty.
 
 
+## Omówienie algorytmów
+
+### Brutalny
+Algorytm brutalny przeszukuje wyczerpująco zbiór rozwiązań znajdując minimalną ścieżkę. Działa w złożoności O(n^2).
+
+### Dijkstra
+Algorytm Dijkstry przeszukuje graf na podstawie ciągłego rozszerzania podobnego do BFS, gdzie kolejka jest parametryzowana odległością od wierzchołka startowego.
+
+### A*
+Algorytm A* ma idę taką samą ajk Dijkstra, ale kolejkę parametryzuje nie odległość rzeczywista wierzchołka początkowego, a jej suma z estymowaną heurystycznie odległością wierzchołek-cel. W tym konkretnym zadaniu, ponieważ graf nie leży w metryce miejskiej na potrzeby algorytmu założono że posiadamy wcześniejszzą informację o ilości krawędzi dzielących wierzchołek od celu. Wówczas funkcja heurystyczna dopuszczalna i monotoniczna przy założeniu dodatnich krawędzi sprowadza się do założenia, że na ścieżce prowadzącej do celu znajdują się tylko krawędzie o najmniejszej długości w grafie.
+
 ## Grafy testowe
 ### Test 1
 Prosty graf w kształcie trójąta. Jedyne zapytanie prosi o najkrótszą ścieżkę pomiędzy wierzchołkami przebiegającą przez trzeci z nich.
