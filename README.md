@@ -44,7 +44,7 @@ Algorytm brutalny przeszukuje wyczerpująco zbiór rozwiązań algorytmem Bellma
 Algorytm Dijkstry przeszukuje graf na podstawie ciągłego rozszerzania podobnego do BFS, gdzie kolejka jest parametryzowana odległością od wierzchołka startowego. Ze względu na użycie bibliotecznej struktury kolejki priorytetowej zaimplementowanej w oparciu o kopiec Fibbonacciego, a więc dodającej log przy każdym włożeniu do kolejki, złożoność czasowa algorytmu wynosi O((V+E)logV)
 
 ### A*
-Algorytm A* ma idę taką samą ajk Dijkstra, ale kolejkę parametryzuje nie odległość rzeczywista wierzchołka początkowego, a jej suma z estymowaną heurystycznie odległością wierzchołek-cel. W tym konkretnym zadaniu, ponieważ graf nie leży w metryce miejskiej na potrzeby algorytmu założono że posiadamy wcześniejszzą informację o ilości krawędzi dzielących wierzchołek od celu. Wówczas funkcja heurystyczna dopuszczalna i monotoniczna przy założeniu dodatnich krawędzi sprowadza się do założenia, że na ścieżce prowadzącej do celu znajdują się tylko krawędzie o najmniejszej długości w grafie. Ze względu na heurystyczną naturę rozwiązania nie można przeprowadzić analizy złożoności czasowej, jednak można bezpiecznie przyjąć że przy dobrze dobranej funkcji heurystycznej algorytm w najgorszym wypadku degraduje się do algorytmu Dijkstry o złożoności O((V+E)logV).
+Algorytm A* ma idę taką samą ajk Dijkstra, ale kolejkę parametryzuje nie odległość rzeczywista wierzchołka początkowego, a jej suma z estymowaną heurystycznie odległością wierzchołek-cel. W tym konkretnym zadaniu, ponieważ graf nie leży w metryce miejskiej na potrzeby algorytmu założono że posiadamy wcześniejszzą informację o ilości krawędzi dzielących wierzchołek od celu. Wówczas funkcja heurystyczna dopuszczalna i monotoniczna przy założeniu dodatnich krawędzi sprowadza się do założenia, że na ścieżce prowadzącej do celu znajdują się tylko krawędzie o najmniejszej długości w grafie. Ze względu na heurystyczną naturę rozwiązania nie można przeprowadzić analizy złożoności czasowej, jednak można bezpiecznie przyjąć że przy dobrze dobranej funkcji heurystycznej algorytm w najgorszym wypadku prawie wszędzie degraduje się do algorytmu Dijkstry o złożoności O((V+E)logV).
 
 ## Grafy testowe
 ### Test 1
@@ -68,6 +68,7 @@ Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednim
 ![](raport_data/test4.png)
 
 ### Testy weryfikacyjne
+Testy weryfikacyjne wygenerowano z pomocą generatora zamieszczonego koło plików przy założeniu że krawędzie grafu są nieujemnymi losowymi wartościami nie większymi od 1000.
 
 | Graf | Ilość wierzchołków | Ilość krawędzi | Ilość zapytań | cechy |
 | :---: | :---: | :---: | :---: |  :---: |
@@ -113,7 +114,10 @@ Rozpatrywane jest pierwsze zapytanie każdej serii.
 
 
 ## Dyskusja wyników
-Rezultaty wykazują, że
+
+### Graf pełny
+W grafie pełnym można zaobserwować prawie że degenerację algorytmu A* do algorytmu Dijkstry, co potwierdzają rezultaty czasowe. Ponieważ wyznacznik heurystyki, tj. odległość w krawędziach od punktu końcowego jest wszędzie równa 1, wartość heurystyki prawie wszędzie taka sama (oprócz oczywiście punktu końcowego). Wciąż jest on potencjalnie marginalnie szybszy ze względu na drobną preferencję w stosunku do wybrania punktu końcowego (dokładniej - punkt końcowy ma odległość zmniejszoną o wagę najmniejszej krawędzi), co ma znaczenie odwrotnieproporcjonalne do wariancji rozkładu wag w grafie.
+
 ## Podsumowanie
 
 ## Dokumentacja
