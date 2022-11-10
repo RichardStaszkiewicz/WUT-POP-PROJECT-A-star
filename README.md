@@ -2,7 +2,7 @@
 _Richad Staszkiewicz, Andrzej Bednarczyk_
 
 ## Zadanie
-Zaimplementować i przetesotować algorytm A\* dla zadania znalezienia ścieżki o najmniejszej wadze od punktu A do B. Wejściem aplikacji jest plik z listą krawędzi grafu (dla każdej krawędzi zdefiniowany jest punkt początkowy, końcowy i waga krawędzi). Wyjściem aplikacji jest najkrótsza scieżka od punktu A do punktu B. Porównać działanie algorytmu A\* z "brutalnym" przeszukiwaniem grafu. Zastosowanie dodatkowego algorytmu będzie dodatkowym atutem przy ocenie projektu.
+_Zaimplementować i przetesotować algorytm A\* dla zadania znalezienia ścieżki o najmniejszej wadze od punktu A do B. Wejściem aplikacji jest plik z listą krawędzi grafu (dla każdej krawędzi zdefiniowany jest punkt początkowy, końcowy i waga krawędzi). Wyjściem aplikacji jest najkrótsza scieżka od punktu A do punktu B. Porównać działanie algorytmu A\* z "brutalnym" przeszukiwaniem grafu. Zastosowanie dodatkowego algorytmu będzie dodatkowym atutem przy ocenie projektu._
 
 ## Interpretacja
 Mając przykładowe wejście w postaci pliku zawierającego:
@@ -56,36 +56,43 @@ Większy graf w formie cyklu. Jedyne zapytanie prosi o drogę między sąsiednim
 
 ![](raport_data/test4.png)
 
-### Test 5
-Graf pełny o 1000 wierzchołków.
+### Testy weryfikacyjne
 
-### Test 6
-Graf w postaciłańcucha o 10k wierzchołkach.
-
-### Test 7
-Graf w postaci łąńcucha o 25k wierzchołkach.
-
-### Test 8
-Graf w losowy o wypełnieniu 50% mający 5k wierzchołków.
-
-### Test 9
-Graf w losowy o wypełnieniu 50% mający 10k wierzchołków.
-
-### Test 10
-Graf w losowy o wypełnieniu 50% mający 25k wierzchołków.
-
-### Test 11
-Graf w losowy o wypełnieniu 20% mający 50k wierzchołków.
+| Graf | Ilość wierzchołków | Ilość krawędzi | Ilość zapytań | cechy |
+| :---: | :---: | :---: | :---: |  :---: |
+| test5 | 1 | 1000 | 1000 | 1000 |
+| test6 | 1 | 1900 | 1600 | 1000 |
+| test7 | 1 | 1900 | 1600 | 1000 |
+| test8 | 1 | 1900 | 1600 | 1000 |
+| test9 | 1 | 1900 | 1600 | 1000 |
+| test10 | 1 | 1900 | 1600 | 1000 |
+| test11 | 1 | 1 | 1 | 1000 |
+| test12 | 1 | 1900 | 1600 | 1000 |
 
 ## Rezultaty
-Podczas przeprowadzania testów czasowych otrzymano następujące rezultaty ilościowe:
+
+Podczas badania pominięto testy 1-4 ze względu na małą wielkość.
+
+### Czasowe
+Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
 | Graf | Ilość zapytań | A* | Dijkstra | Brut | Jednostka czasu |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | test1 | 1 | 1000 | 1000 | 1400 | nanosekundy |
-| test2 | 1 |
+| test2 | 1 | 1900 | 1600 | 1800 | nanosekundy |
+| test3 | 1 | | | | nanosekundy |
+
+### Ilościowe
+Podczas przeprowadzania testów otrzymano następujące rezultaty ilościowe.
+Rozpatrywane jest pierwsze zapytanie każdej serii.
+| Graf | Optimum globalne | A* | Dijkstra | Brut |
+| :---: | :---: | :---: | :---: | :---: |
+| test1 | 1 | 1000 | 1000 | 1400 |
+| test2 | 1 | 1900 | 1600 | 1800 |
+| test3 | 1 |
+
 
 ## Dyskusja wyników
-
+Rezultaty wykazują, że
 ## Podsumowanie
 
 ## Dokumentacja

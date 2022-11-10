@@ -5,7 +5,7 @@
 
 GRAPH::Graph::Graph(){}
 
-Graph::Graph(std::string dir, bool verbose=false)
+Graph::Graph(std::string dir, bool verbose)
 {
     std::ifstream in(dir);
     in >> no_vortex >> no_edges >> no_questions;
