@@ -90,9 +90,9 @@ Podczas przeprowadzania testów otrzymano następujące rezultaty czasowe:
 | Graf | Ilość zapytań | A* | Dijkstra | Brut | Jednostka czasu |
 | :---: | :---: | :---: | :---: | :---: | :---: |
 | test5 | 1 | 4.9045e+07 | 1.18336e+07 | 1.45588e+07 | nanosekundy |
-| test6 | 1 | 119200 | 1600 | 670400 | nanosekundy |
-| test7 | 1 | 439700 | 5600 | 1.3103e+06 | nanosekundy |
-| test8 | 1 | 240300 | 47200 | 62500 | nanosekundy |
+| test6 | 1 | 119 200 | 1 600 | 670 400 | nanosekundy |
+| test7 | 1 | 439 700 | 5 600 | 1.3103e+06 | nanosekundy |
+| test8 | 1 | 240 300 | 47 200 | 62 500 | nanosekundy |
 | test9 | 1 | 4.21576e+07 | 6.7516e+06 | 7.8259e+06 | nanosekundy |
 | test10 | 1 | 3.78377e+09 | 8.91054e+07 | 1.23823e+08 | nanosekundy |
 | test11 | 1 | 4.51827e+09 | 5.25152e+07 | 8.51126e+07 | nanosekundy |

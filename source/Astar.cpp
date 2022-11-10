@@ -73,7 +73,7 @@ float Astar::exe(int start, int destination, bool verbose)
     std::priority_queue<std::pair <float, std::pair<float, int>>> q;
     // the priority queue is sorted by first argument, hold (heuristic cost to dest, true cost from start, vertex index)
 
-    prep(destination);
+    if(D != destination) prep(destination);
 
     //always push the negative value -> the priority queue is outputing max
     q.push(std::make_pair(heuristic(start), std::make_pair(0, start)));
